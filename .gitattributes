@@ -1,0 +1,9 @@
+# Repo này publish cho cả Windows lẫn macOS/Linux (PyPI + npm), nên chuẩn hoá
+# LF cho mọi file text.
+#
+# Quan trọng nhất: `npm/bin/web-search-mcp.js` có shebang. Nếu file dùng CRLF,
+# trên macOS/Linux kernel đọc `#!/usr/bin/env node\r` rồi đi tìm lệnh tên
+# `node\r` và báo "No such file or directory" — package npm chỉ chạy được trên
+# Windows. npm publish lấy dữ liệu từ working tree, nên quy tắc này phải đi kèm
+# việc chuẩn hoá chính các file trong working tree, không chỉ khai báo ở đây.
+* text=auto eol=lf
