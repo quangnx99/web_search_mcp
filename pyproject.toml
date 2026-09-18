@@ -7,7 +7,7 @@ requires-python = ">=3.12"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [
-    { name = "quangnx", email = "quangnx@ichiba.vn" }
+    { name = "quangnx", email = "adquang199x@gmail.com" }
 ]
 keywords = [
     "mcp",
