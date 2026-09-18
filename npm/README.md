@@ -1,4 +1,4 @@
-# web-search-mcp (npm)
+# @quangnx99/web-search-mcp (npm)
 
 Shim npm cho [web-search-mcp-server](https://pypi.org/project/web-search-mcp-server/)
 — MCP server web search miễn phí, chạy được **không cần API key**.
@@ -16,15 +16,15 @@ hướng dẫn cài `uv`.
 ## Dùng
 
 ```bash
-npx web-search-mcp                       # MCP server trên stdio
-npx web-search-mcp search "giá vàng"     # CLI dùng tay
-npx web-search-mcp doctor                # kiểm tra cache + biến môi trường
+npx @quangnx99/web-search-mcp                       # MCP server trên stdio
+npx @quangnx99/web-search-mcp search "giá vàng"     # CLI dùng tay
+npx @quangnx99/web-search-mcp doctor                # kiểm tra cache + biến môi trường
 ```
 
 Nối vào Claude Code:
 
 ```bash
-claude mcp add --scope user web-search -- npx -y web-search-mcp
+claude mcp add --scope user web-search -- npx -y @quangnx99/web-search-mcp
 ```
 
 ## Vì sao cần `uv`?

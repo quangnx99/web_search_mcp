@@ -3,7 +3,7 @@
 MCP server cung cấp web search cho Claude Code CLI. Chạy được **không cần API key nào**.
 
 ```bash
-uvx web-search-mcp-server     # hoặc: npx -y web-search-mcp
+uvx web-search-mcp-server     # hoặc: npx -y @quangnx99/web-search-mcp
 ```
 
 ## Tools
@@ -94,8 +94,8 @@ claude mcp list   # kỳ vọng: web-search ... ✔ Connected
 Hoặc qua npm, nếu bạn quen `npx` (cần Node >= 18):
 
 ```bash
-npx -y web-search-mcp
-claude mcp add --scope user web-search -- npx -y web-search-mcp
+npx -y @quangnx99/web-search-mcp
+claude mcp add --scope user web-search -- npx -y @quangnx99/web-search-mcp
 ```
 
 Gói npm là **shim**: nó gọi `uvx` (hoặc `python -m web_search_mcp` nếu bạn đã
@@ -114,8 +114,8 @@ claude mcp add --scope user --env SERPER_API_KEY=<key> \
 Trên Windows **không cần** bọc `cmd /c`: `uv`/`uvx` là `.exe` thật.
 
 > **Tên gọi:** distribution trên PyPI là `web-search-mcp-server` (tên
-> `web-search-mcp` đã có người dùng), lệnh là `web-search-mcp`, còn package npm
-> là `web-search-mcp`.
+> `web-search-mcp` đã có người dùng), package npm là `@quangnx99/web-search-mcp`,
+> còn lệnh chạy trong cả hai trường hợp đều là `web-search-mcp`.
 
 ### CLI dùng tay
 

@@ -1,5 +1,5 @@
 {
-  "name": "web-search-mcp",
+  "name": "@quangnx99/web-search-mcp",
   "version": "0.1.0",
   "description": "MCP server web search miễn phí cho Claude Code và mọi MCP client — không cần API key",
   "keywords": [
@@ -31,6 +31,9 @@
   ],
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "test": "node --test"
