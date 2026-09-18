@@ -3,7 +3,7 @@
 MCP server cung cấp web search cho Claude Code CLI. Chạy được **không cần API key nào**.
 
 ```bash
-uvx web-search-mcp-server     # hoặc: npx -y @quangnx99/web-search-mcp
+uvx web-search-mcp-free     # hoặc: npx -y @quangnx99/web-search-mcp
 ```
 
 ## Tools
@@ -86,8 +86,8 @@ Cần [uv](https://docs.astral.sh/uv/getting-started/installation/) (đi kèm `u
 `uv` tự lo Python >= 3.12, không cần cài trước.
 
 ```bash
-uvx web-search-mcp-server             # chạy MCP server trên stdio
-claude mcp add --scope user web-search -- uvx web-search-mcp-server
+uvx web-search-mcp-free             # chạy MCP server trên stdio
+claude mcp add --scope user web-search -- uvx web-search-mcp-free
 claude mcp list   # kỳ vọng: web-search ... ✔ Connected
 ```
 
@@ -99,7 +99,7 @@ claude mcp add --scope user web-search -- npx -y @quangnx99/web-search-mcp
 ```
 
 Gói npm là **shim**: nó gọi `uvx` (hoặc `python -m web_search_mcp` nếu bạn đã
-`pip install web-search-mcp-server`) rồi chuyển tiếp stdio nguyên vẹn. Khi máy
+`pip install web-search-mcp-free`) rồi chuyển tiếp stdio nguyên vẹn. Khi máy
 chưa có gì chạy được, shim dừng kèm hướng dẫn cài — nó **không** tự tải và chạy
 script lạ.
 
@@ -108,14 +108,16 @@ Thêm API key sau khi đã cài:
 ```bash
 claude mcp remove --scope user web-search
 claude mcp add --scope user --env SERPER_API_KEY=<key> \
-  web-search -- uvx web-search-mcp-server
+  web-search -- uvx web-search-mcp-free
 ```
 
 Trên Windows **không cần** bọc `cmd /c`: `uv`/`uvx` là `.exe` thật.
 
-> **Tên gọi:** distribution trên PyPI là `web-search-mcp-server` (tên
-> `web-search-mcp` đã có người dùng), package npm là `@quangnx99/web-search-mcp`,
-> còn lệnh chạy trong cả hai trường hợp đều là `web-search-mcp`.
+> **Tên gọi:** distribution trên PyPI là `web-search-mcp-free` — tên
+> `web-search-mcp` và `websearch-mcp-server` đều đã có dự án khác chiếm (PyPI
+> chặn cả tên chỉ *tương tự*, không chỉ tên trùng hệt). Package npm là
+> `@quangnx99/web-search-mcp`, còn lệnh chạy trong mọi trường hợp đều là
+> `web-search-mcp`.
 
 ### CLI dùng tay
 

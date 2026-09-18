@@ -1,14 +1,14 @@
 # @quangnx99/web-search-mcp (npm)
 
-Shim npm cho [web-search-mcp-server](https://pypi.org/project/web-search-mcp-server/)
+Shim npm cho [web-search-mcp-free](https://pypi.org/project/web-search-mcp-free/)
 — MCP server web search miễn phí, chạy được **không cần API key**.
 
 Gói này **không chứa code Python**. Nó chỉ tìm cách chạy server và chuyển tiếp
 stdio nguyên vẹn cho MCP client:
 
-1. `uvx web-search-mcp-server` (ưu tiên — không cần cài gì trước, chỉ cần `uv`)
-2. `uv tool run web-search-mcp-server`
-3. `python -m web_search_mcp` (khi đã `pip install web-search-mcp-server`)
+1. `uvx web-search-mcp-free` (ưu tiên — không cần cài gì trước, chỉ cần `uv`)
+2. `uv tool run web-search-mcp-free`
+3. `python -m web_search_mcp` (khi đã `pip install web-search-mcp-free`)
 
 Không tìm thấy cách nào thì shim **không tự tải và chạy script lạ** — nó dừng với
 hướng dẫn cài `uv`.

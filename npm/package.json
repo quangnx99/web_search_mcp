@@ -1,6 +1,6 @@
 {
   "name": "@quangnx99/web-search-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server web search miễn phí cho Claude Code và mọi MCP client — không cần API key",
   "keywords": [
     "mcp",

@@ -1,5 +1,5 @@
 [project]
-name = "web-search-mcp-server"
+name = "web-search-mcp-free"
 version = "0.1.0"
 description = "MCP server web search miễn phí cho Claude Code và mọi MCP client — không cần API key"
 readme = "README.md"
@@ -54,8 +54,8 @@ dev = [
 requires = ["uv_build>=0.12.1,<0.13.0"]
 build-backend = "uv_build"
 
-# Distribution tên là "web-search-mcp-server" nhưng package import là
-# "web_search_mcp". Không khai báo thì uv_build đi tìm "web_search_mcp_server"
+# Distribution tên là "web-search-mcp-free" nhưng package import là
+# "web_search_mcp". Không khai báo thì uv_build đi tìm "web_search_mcp_free"
 # và build thất bại.
 [tool.uv.build-backend]
 module-name = "web_search_mcp"

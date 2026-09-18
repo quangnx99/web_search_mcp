@@ -35,7 +35,7 @@ def _version() -> str:
     from importlib.metadata import PackageNotFoundError, version
 
     try:
-        return version("web-search-mcp-server")
+        return version("web-search-mcp-free")
     except PackageNotFoundError:
         # Chạy trực tiếp từ source khi chưa `uv sync`.
         return "0.0.0+source"

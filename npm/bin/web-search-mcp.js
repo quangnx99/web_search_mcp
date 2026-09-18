@@ -15,7 +15,7 @@
 const { spawn, spawnSync } = require("node:child_process");
 
 /** Tên distribution trên PyPI (khác tên lệnh và khác tên package npm). */
-const PYPI_PACKAGE = "web-search-mcp-server";
+const PYPI_PACKAGE = "web-search-mcp-free";
 
 const INSTALL_HINT = `Không tìm thấy cách chạy server web-search-mcp.
 
@@ -24,7 +24,7 @@ Cần một trong hai:
          Windows:      powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
          macOS/Linux:  curl -LsSf https://astral.sh/uv/install.sh | sh
   2) Python >= 3.12 với package đã cài:
-         pip install web-search-mcp-server
+         pip install web-search-mcp-free
 
 Sau đó thử lại. Hoặc chạy trực tiếp không qua npm:
   uvx ${PYPI_PACKAGE}
