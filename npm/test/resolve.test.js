@@ -3,14 +3,18 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 
-const { resolveRunner, PYPI_PACKAGE } = require("../bin/web-search-mcp.js");
+const { resolveRunner, PYPI_PACKAGE, CONSOLE_COMMAND } = require("../bin/web-search-mcp.js");
 
 const args = ["search", "giá vàng"];
+
+// uvx chỉ chạy bare name khi package có executable trùng tên gói, nên shim
+// luôn dùng dạng `--from` để không phụ thuộc bản PyPI nào.
+const viaUv = ["--from", PYPI_PACKAGE, CONSOLE_COMMAND];
 
 test("ưu tiên uvx khi có sẵn", () => {
   const runner = resolveRunner(args, { which: (c) => c === "uvx" });
   assert.equal(runner.command, "uvx");
-  assert.deepEqual(runner.args, [PYPI_PACKAGE, ...args]);
+  assert.deepEqual(runner.args, [...viaUv, ...args]);
 });
 
 test("rơi về `uv tool run` khi không có uvx", () => {
@@ -19,7 +23,7 @@ test("rơi về `uv tool run` khi không có uvx", () => {
     detectPython: () => "python",
   });
   assert.equal(runner.command, "uv");
-  assert.deepEqual(runner.args, ["tool", "run", PYPI_PACKAGE, ...args]);
+  assert.deepEqual(runner.args, ["tool", "run", ...viaUv, ...args]);
 });
 
 test("rơi về python -m khi không có uv", () => {

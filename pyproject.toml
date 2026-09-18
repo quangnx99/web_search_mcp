@@ -1,6 +1,6 @@
 [project]
 name = "web-search-mcp-free"
-version = "0.1.0"
+version = "0.1.1"
 description = "MCP server web search miễn phí cho Claude Code và mọi MCP client — không cần API key"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -39,6 +39,10 @@ dependencies = [
 
 [project.scripts]
 web-search-mcp = "web_search_mcp.cli:main"
+# Alias bắt buộc: `uvx <tên>` chỉ chạy được khi package có executable TRÙNG tên
+# gói (uv không tự suy ra executable duy nhất — nó báo "not provided by
+# package"). Thiếu dòng này thì `uvx web-search-mcp-free` hỏng trên mọi HĐH.
+web-search-mcp-free = "web_search_mcp.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/quangnx99/web_search_mcp"

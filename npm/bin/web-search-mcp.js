@@ -17,6 +17,9 @@ const { spawn, spawnSync } = require("node:child_process");
 /** Tên distribution trên PyPI (khác tên lệnh và khác tên package npm). */
 const PYPI_PACKAGE = "web-search-mcp-free";
 
+/** Tên executable do package cung cấp — không đổi dù distribution đổi tên. */
+const CONSOLE_COMMAND = "web-search-mcp";
+
 const INSTALL_HINT = `Không tìm thấy cách chạy server web-search-mcp.
 
 Cần một trong hai:
@@ -60,9 +63,12 @@ function resolveRunner(args, deps = {}) {
   const which = deps.which || defaultWhich;
   const detectPython = deps.detectPython || defaultDetectPython;
 
+  // Dùng `--from` thay vì `uvx ${PYPI_PACKAGE}`: uvx chỉ chạy bare name khi
+  // package có executable TRÙNG tên gói, mà điều đó chỉ đúng từ 0.1.1. Dạng
+  // `--from` chạy được với mọi bản đã phát hành.
   const viaUv = [
-    ["uvx", [PYPI_PACKAGE]],
-    ["uv", ["tool", "run", PYPI_PACKAGE]],
+    ["uvx", ["--from", PYPI_PACKAGE, CONSOLE_COMMAND]],
+    ["uv", ["tool", "run", "--from", PYPI_PACKAGE, CONSOLE_COMMAND]],
   ];
   for (const [command, prefix] of viaUv) {
     if (which(command)) {
@@ -126,4 +132,4 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { resolveRunner, PYPI_PACKAGE, INSTALL_HINT };
+module.exports = { resolveRunner, PYPI_PACKAGE, CONSOLE_COMMAND, INSTALL_HINT };

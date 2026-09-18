@@ -6,9 +6,12 @@ Shim npm cho [web-search-mcp-free](https://pypi.org/project/web-search-mcp-free/
 Gói này **không chứa code Python**. Nó chỉ tìm cách chạy server và chuyển tiếp
 stdio nguyên vẹn cho MCP client:
 
-1. `uvx web-search-mcp-free` (ưu tiên — không cần cài gì trước, chỉ cần `uv`)
-2. `uv tool run web-search-mcp-free`
+1. `uvx --from web-search-mcp-free web-search-mcp` (ưu tiên — không cần cài gì trước, chỉ cần `uv`)
+2. `uv tool run --from web-search-mcp-free web-search-mcp`
 3. `python -m web_search_mcp` (khi đã `pip install web-search-mcp-free`)
+
+Dạng `--from` là cố ý: `uvx <tên-gói>` chỉ chạy được khi package có executable
+**trùng tên gói**, mà alias trùng tên đó chỉ có từ bản `0.1.1`.
 
 Không tìm thấy cách nào thì shim **không tự tải và chạy script lạ** — nó dừng với
 hướng dẫn cài `uv`.

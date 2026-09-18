@@ -117,7 +117,23 @@ Trên Windows **không cần** bọc `cmd /c`: `uv`/`uvx` là `.exe` thật.
 > `web-search-mcp` và `websearch-mcp-server` đều đã có dự án khác chiếm (PyPI
 > chặn cả tên chỉ *tương tự*, không chỉ tên trùng hệt). Package npm là
 > `@quangnx99/web-search-mcp`, còn lệnh chạy trong mọi trường hợp đều là
-> `web-search-mcp`.
+> `web-search-mcp`. Package cũng cung cấp thêm alias `web-search-mcp-free` vì
+> `uvx <tên-gói>` chỉ chạy được khi executable **trùng tên gói**.
+
+### Lỗi thường gặp
+
+`An executable named 'web-search-mcp-free' is not provided by package ...`
+→ bạn đang chạy bản PyPI `0.1.0`, bản này chưa có alias trùng tên gói. Lấy bản mới:
+
+```bash
+uvx --refresh web-search-mcp-free
+```
+
+Hoặc dùng dạng `--from`, chạy được với **mọi** bản đã phát hành:
+
+```bash
+uvx --from web-search-mcp-free web-search-mcp
+```
 
 ### CLI dùng tay
 
