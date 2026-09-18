@@ -1,0 +1,38 @@
+{
+  "name": "web-search-mcp",
+  "version": "0.1.0",
+  "description": "MCP server web search miễn phí cho Claude Code và mọi MCP client — không cần API key",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "web-search",
+    "claude",
+    "claude-code",
+    "llm",
+    "agent"
+  ],
+  "license": "MIT",
+  "author": "quangnx <quangnx@ichiba.vn>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quangnx99/web_search_mcp.git",
+    "directory": "npm"
+  },
+  "homepage": "https://github.com/quangnx99/web_search_mcp#readme",
+  "bugs": {
+    "url": "https://github.com/quangnx99/web_search_mcp/issues"
+  },
+  "bin": {
+    "web-search-mcp": "bin/web-search-mcp.js"
+  },
+  "files": [
+    "bin/",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

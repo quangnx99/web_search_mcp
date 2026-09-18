@@ -1,0 +1,69 @@
+[project]
+name = "web-search-mcp-server"
+version = "0.1.0"
+description = "MCP server web search miễn phí cho Claude Code và mọi MCP client — không cần API key"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "quangnx", email = "quangnx@ichiba.vn" }
+]
+keywords = [
+    "mcp",
+    "model-context-protocol",
+    "web-search",
+    "claude",
+    "claude-code",
+    "llm",
+    "agent",
+    "ddgs",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+    "Topic :: Text Processing :: Indexing",
+]
+dependencies = [
+    "ddgs>=9.14.4",
+    "fastmcp>=3.0",
+    "httpx>=0.28.1",
+    # Có sẵn qua fastmcp, nhưng khai báo tường minh vì cache.py dùng trực tiếp.
+    "platformdirs>=4.0",
+]
+
+[project.scripts]
+web-search-mcp = "web_search_mcp.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/quangnx99/web_search_mcp"
+Repository = "https://github.com/quangnx99/web_search_mcp"
+Issues = "https://github.com/quangnx99/web_search_mcp/issues"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
+
+# Distribution tên là "web-search-mcp-server" nhưng package import là
+# "web_search_mcp". Không khai báo thì uv_build đi tìm "web_search_mcp_server"
+# và build thất bại.
+[tool.uv.build-backend]
+module-name = "web_search_mcp"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Test async chạy qua plugin pytest của anyio (đã có sẵn nhờ fastmcp) — các file
+# test khai báo `pytestmark = pytest.mark.anyio`, không cần pytest-asyncio.
+markers = [
+    "anyio: test async chạy qua anyio",
+]
