@@ -1,0 +1,11 @@
+# Ket qua dang ky + phien dang nhap: KHONG commit
+accounts.json
+states/
+sessions/
+screens/
+
+# Scratch (tarball auggie da giai nen de reverse-engineer)
+.tmp/
+
+__pycache__/
+*.py[oc]
